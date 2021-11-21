@@ -61,8 +61,11 @@ public class TennisGameTest {
 		game.player1Scored();
 		//Act
 		// This statement should cause an exception
-		game.player1Scored();
-		
+		try {
+			game.player1Scored();
+		} catch (TennisGameException e) {
+			e.printStackTrace();
+		}
 	}	
 	
 	@Test
@@ -76,7 +79,11 @@ public class TennisGameTest {
 		game.player2Scored();
 		//Act
 		// This statement should cause an exception
-		game.player2Scored();
+		try {
+			game.player2Scored();
+		} catch (TennisGameException e) {
+			e.printStackTrace();
+		}
 		
 	}		
 	
@@ -87,8 +94,9 @@ public class TennisGameTest {
 		game.player2Scored();
 		game.player1Scored();
 		game.player1Scored();
+		game.player1Scored();
 		String score = game.getScore();
-		assertEquals("Player1 wins", score, "End score incorrect");
+		assertEquals("player1 wins", score, "End score incorrect");
 		
 	}
 	
@@ -99,8 +107,9 @@ public class TennisGameTest {
 		game.player1Scored();
 		game.player2Scored();
 		game.player2Scored();
+		game.player2Scored();
 		String score = game.getScore();
-		assertEquals("Player2 wins", score, "End score incorrect");
+		assertEquals("player2 wins", score, "End score incorrect");
 	}
 	
 	@Test
@@ -134,7 +143,7 @@ public class TennisGameTest {
 		game.player1Scored();
 		
 		String score = game.getScore();
-		assertEquals("Player1 wins", score);
+		assertEquals("player1 wins", score);
 	}
 	
 	@Test
@@ -147,7 +156,7 @@ public class TennisGameTest {
 		game.player2Scored();
 		
 		String score = game.getScore();
-		assertEquals("Player2 wins", score);
+		assertEquals("player2 wins", score);
 	}
 	
 	@Test
